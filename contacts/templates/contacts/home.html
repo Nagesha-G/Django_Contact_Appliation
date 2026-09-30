@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Contact Manager</title>
+    <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="navbar">
+    <a href="{% url 'home' %}">🏠 Home</a>
+    <a href="{% url 'contact_list' %}">👥 Contacts</a>
+    <a href="{% url 'add_contact' %}">➕ Add Contact</a>
+</nav>
+
+<section class="hero">
+
+    <h1>Contact Manager</h1>
+
+    <p>
+        Manage your contacts simply and efficiently.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a
+            class="btn btn-primary"
+            href="{% url 'contact_list' %}"
+        >
+            View Contacts
+        </a>
+
+        <a
+            class="btn btn-secondary"
+            href="{% url 'add_contact' %}"
+        >
+            + Add Contact
+        </a>
+
+    </div>
+
+</section>
+
+
+</div>
+
+</body>
+</html>

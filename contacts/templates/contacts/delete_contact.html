@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Delete Contact</title>
+    <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="navbar">
+    <a href="{% url 'home' %}">🏠 Home</a>
+    <a href="{% url 'contact_list' %}">👥 Contacts</a>
+</nav>
+
+<div class="delete-card">
+
+    <h1>Delete Contact</h1>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ contact.name }}</strong>?
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button class="btn btn-delete" type="submit">
+            Yes, Delete
+        </button>
+
+        <a
+            class="btn btn-secondary"
+            href="{% url 'contact_list' %}"
+        >
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+</div>
+
+</body>
+</html>

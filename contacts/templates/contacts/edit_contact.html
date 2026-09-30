@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Edit Contact</title>
+    <link rel="stylesheet" href="{% static 'contacts/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="navbar">
+    <a href="{% url 'home' %}">🏠 Home</a>
+    <a href="{% url 'contact_list' %}">👥 Contacts</a>
+</nav>
+
+<div class="form-card">
+
+    <h1>Edit Contact</h1>
+
+    <p>Update {{ contact.name }}'s information.</p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="btn btn-primary" type="submit">
+            Update Contact
+        </button>
+
+        <a
+            class="btn btn-secondary"
+            href="{% url 'contact_list' %}"
+        >
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+</div>
+
+</body>
+</html>
